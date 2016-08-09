@@ -1,3 +1,8 @@
 .selected h2 {
   background-color: red;
 }
+
+.task-form {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
