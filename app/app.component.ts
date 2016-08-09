@@ -1,6 +1,15 @@
 import { Component } from 'angular2/core';
 
 @Component({
+  selector: 'task-list',
+  template: `
+  <h3 *ngFor="#currentTask of taskList" (click)="taskClicked(currentTask)">
+    {{ currentTask.description }}
+  </h3>
+  `
+})
+
+@Component({
   selector: 'my-app',
   template: `
     <div class="container">
