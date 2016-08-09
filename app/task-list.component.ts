@@ -3,9 +3,11 @@ import { TaskComponent } from './task.component';
 import { Task } from './task.model';
 import { EditTaskDetailsComponent } from './edit-task-details.component';
 import { CreateNewTaskComponent } from './create-new-task.component';
+import {DonePipe} from './done.pipe';
 
 @Component({
   selector: 'task-list',
+  pipes: [DonePipe],
   inputs: ['taskList'],
   outputs: ['onTaskSelect'],
   directives: [TaskComponent, EditTaskDetailsComponent, CreateNewTaskComponent],
@@ -15,6 +17,7 @@ export class TaskListComponent {
   public taskList: Task[];
   public onTaskSelect: EventEmitter<Task>;
   public selectedTask: Task;
+  public filterDone: string = "notDone";
   constructor() {
     this.onTaskSelect = new EventEmitter();
   }
@@ -26,6 +29,10 @@ export class TaskListComponent {
   createTask(description: string): void {
   this.taskList.push(
     new Task(description, this.taskList.length)
-  );
-}
+    );
+  }
+  onChange(filterOption) {
+  this.filterDone = filterOption;
+  console.log(this.filterDone);
+  }
 }
