@@ -1,14 +1,27 @@
 import { Component, EventEmitter } from 'angular2/core';
 
+@Component({
+  selector: 'task-display',
+  inputs: ['task'],
+  template: `
+    <h2>{{ task.description }}</h2>
+  `
+})
+export class TaskComponent {
+  public task: Task;
+}
 
 @Component({
   selector: 'task-list',
   inputs: ['taskList'],
   outputs: ['onTaskSelect'],
+  directives: [TaskComponent],
   template: `
-  <h2 *ngFor="#currentTask of taskList" (click)="taskClicked(currentTask)" [class.selected]="currentTask === selectedTask">
-    {{ currentTask.description }}
-  </h2>
+  <task-display *ngFor="#currentTask of taskList"
+    (click)="taskClicked(currentTask)"
+    [class.selected]="currentTask === selectedTask"
+    [task]="currentTask">
+  </task-display>
   `
 })
 export class TaskListComponent {
