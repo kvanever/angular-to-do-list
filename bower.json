@@ -1,0 +1,21 @@
+{
+  "name": "angular-to-do-list",
+  "description": "angular to do list demo project",
+  "main": "",
+  "authors": [
+    "Kevin VanEvery <kvanever@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.0"
+  }
+}
